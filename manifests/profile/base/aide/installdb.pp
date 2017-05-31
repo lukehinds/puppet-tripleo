@@ -1,20 +1,20 @@
 # Initialises new database and copies it to the correct naming convention
 class tripleo::profile::base::aide::installdb ( inherits aide {
   exec { 'aide init':
-    command     => "${::aide::params::aide_path} --init --config ${::aide::conf_path}",
+    command     => "/usr/sbin/aide --init --config /etc/aide.conf'",
     user        => 'root',
     refreshonly => true,
     subscribe   => Concat['aide.conf']
   }
 
   exec { 'install aide db':
-    command     => "/bin/cp -f ${::aide::db_temp_path} ${::aide::db_path}",
+    command     => "/bin/cp -f /var/lib/aide/aide.db.new /var/lib/aide/aide.db",
     user        => 'root',
     refreshonly => true,
     subscribe   => Exec['aide init']
   }
 
-  file { $::aide::db_path:
+  file { '/var/lib/aide/aide.db':
     ensure  => present,
     owner   => root,
     group   => root,

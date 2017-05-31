@@ -27,7 +27,6 @@
 #   Defaults to hiera('step')
 #
 class tripleo::profile::base::aide (
-  $package             = hiera('package', undef),
   $hour                   = hiera('hour', undef),
   $minute               = hiera('minute', undef),
   $email                  = hiera('email', undef),
@@ -42,8 +41,8 @@ class tripleo::profile::base::aide (
 
   if $step >=1 {
     package { 'aide':
-      ensure => $::aide::version,
-      name   => $package,
+      ensure => 'present',
+      name   => 'aide',
       alias  => 'aide',
     }
 
@@ -66,7 +65,7 @@ class tripleo::profile::base::aide (
 
 # If a hash of rules is supplied with class then call auditd::rules
     if $rules {
-      create_resources('::::tripleo::profile::base::aide::rules', $rules)
+      create_resources('::tripleo::profile::base::aide::rules', $rules)
     }
     contain 'aide::cron'
   }
