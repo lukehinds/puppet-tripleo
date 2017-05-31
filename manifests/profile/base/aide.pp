@@ -47,7 +47,7 @@ class tripleo::profile::base::aide (
       alias  => 'aide',
     }
 
-    include ::aide::installdb
+    include ::tripleo::profile::base::aide::installdb
 
     concat { 'aide.conf':
       path           => $conf_path,
