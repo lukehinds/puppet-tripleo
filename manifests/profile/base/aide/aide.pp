@@ -26,7 +26,7 @@
 #   for more details.
 #   Defaults to hiera('step')
 #
-class tripleo::profile::base::aide::aide (
+class tripleo::profile::base::aide (
   $package             = hiera('package'),
   $hour                   = hiera('hour'),
   $minute               = hiera('minute'),
