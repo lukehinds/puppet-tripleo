@@ -26,7 +26,7 @@
 #   for more details.
 #   Defaults to hiera('step')
 #
-class tripleo::profile::base::aide::aide (
+class tripleo::profile::base::aide (
   $package             = hiera('package', undef),
   $hour                   = hiera('hour', undef),
   $minute               = hiera('minute', undef),
@@ -38,7 +38,7 @@ class tripleo::profile::base::aide::aide (
   $check_parameters = "--config=${conf_path}",
   $step                    = hiera('step')
 ) {
-  include ::tripleo::profile::base::aide::aide
+  include ::tripleo::profile::base::aide
 
   if $step >=1 {
     package { 'aide':
