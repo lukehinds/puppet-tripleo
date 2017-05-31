@@ -1,5 +1,5 @@
 
-class tripleo::profile::base::aide::aide::rules (
+class tripleo::profile::base::aide::rules (
   $step = hiera('step'),
   $content='',
   $order=10,
