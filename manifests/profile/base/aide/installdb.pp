@@ -1,5 +1,5 @@
 # Initialises new database and copies it to the correct naming convention
-class tripleo::profile::base::aide::installdb ( inherits aide {
+class tripleo::profile::base::aide::installdb ( {
   exec { 'aide init':
     command     => "/usr/sbin/aide --init --config /etc/aide.conf'",
     user        => 'root',
