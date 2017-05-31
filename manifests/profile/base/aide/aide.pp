@@ -27,10 +27,10 @@
 #   Defaults to hiera('step')
 #
 class tripleo::profile::base::aide::aide (
-  $package             = hiera('package'),
-  $hour                   = hiera('hour'),
-  $minute               = hiera('minute'),
-  $email                  = hiera('email'),
+  $package             = hiera('package', undef),
+  $hour                   = hiera('hour', undef),
+  $minute               = hiera('minute', undef),
+  $email                  = hiera('email', undef),
   $command          = '/usr/sbin/aide',
   $conf_path          = '/etc/aide.conf',
   $mail_path          = '/bin/mail',
