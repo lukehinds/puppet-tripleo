@@ -28,6 +28,8 @@
 #
 class tripleo::profile::base::aide (
   $step                    = hiera('step'),
+  $conf_path                = '/etc/aide.conf',
+  $check_parameters = "--config=${conf_path}",
   $rules       = hiera('rules', undef)
 ) {
   include ::tripleo::profile::base::aide

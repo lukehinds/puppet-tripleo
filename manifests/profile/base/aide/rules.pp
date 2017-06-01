@@ -23,5 +23,4 @@ class tripleo::profile::base::aide::rules (
       order   => $order,
       content => $body,
     }
-  }
 }
