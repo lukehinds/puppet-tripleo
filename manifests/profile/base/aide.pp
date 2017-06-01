@@ -28,7 +28,7 @@
 #
 class tripleo::profile::base::aide (
   $step                    = hiera('step')
-  $rules                   = {},
+  $rules       = hiera('rules', undef),
 ) {
   include ::tripleo::profile::base::aide
 
