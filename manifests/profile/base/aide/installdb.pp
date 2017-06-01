@@ -2,6 +2,7 @@
 class tripleo::profile::base::aide::installdb (
   $step = hiera('step'),
   ) {
+
     exec { 'aide init':
       command     => "/usr/sbin/aide --init --config /etc/aide.conf'",
       user        => 'root',
@@ -32,5 +33,4 @@ class tripleo::profile::base::aide::installdb (
       seluser => 'unconfined_u',
       require => Exec['aide init']
     }
-  }
 }
