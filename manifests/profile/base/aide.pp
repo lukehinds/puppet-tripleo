@@ -60,7 +60,7 @@ class tripleo::profile::base::aide (
 
 # If a hash of rules is supplied with class then call auditd::rules
     if $rules {
-      create_resources(::tripleo::profile::base::aide::rules, $rules)
+      create_resources(tripleo::profile::base::aide::rules, $rules)
     }
     contain 'aide::cron'
   }
