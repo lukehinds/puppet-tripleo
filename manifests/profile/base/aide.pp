@@ -36,7 +36,7 @@ class tripleo::profile::base::aide (
 
   if $step >=1 {
     package { 'aide':
-      ensure => installed,
+      ensure => 'present'
     }
 
     include ::tripleo::profile::base::aide::installdb
