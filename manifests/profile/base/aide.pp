@@ -27,8 +27,10 @@
 #   Defaults to hiera('step')
 #
 class tripleo::profile::base::aide (
-  $step                    = hiera('step'),
+  $step                          = hiera('step'),
   $conf_path                = '/etc/aide.conf',
+  $db_path                   = hiera('db_path', '/var/lib/aide/aide.db'),
+  $db_temp_path        = hiera('db_path', '/var/lib/aide/aide.db.new'),
   $check_parameters = "--config=${conf_path}",
   $rules       = hiera('rules', undef)
 ) {
